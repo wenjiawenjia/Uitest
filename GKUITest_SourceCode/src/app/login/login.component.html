@@ -1,0 +1,25 @@
+<form class="login-form" *ngIf="!loggedIn">
+  <mat-form-field class="username">
+    <mat-label>User Name</mat-label>
+    <input matInput #userValue type="text" [(value)]="usernameValue">
+  </mat-form-field>
+
+  <mat-form-field class="password">
+    <mat-label>Password</mat-label>
+    <input matInput #passValue type="password" [(value)]="passwordValue">
+  </mat-form-field>
+
+  <button (click)="onLogin(userValue.value, passValue.value)">Submit</button>
+</form>
+
+<div class="dashboard" *ngIf="loggedIn">
+
+  <div class="displayName">{{user.userName}}
+    <button (click)="onLogout()">Logout</button>
+  </div>
+
+  <div class="label">{{dashboardLabel}}</div>
+  <div *ngFor="let name of cards" class="cards">
+    <mat-card (click)="onClick(name)">{{name}}</mat-card>
+  </div>
+</div>

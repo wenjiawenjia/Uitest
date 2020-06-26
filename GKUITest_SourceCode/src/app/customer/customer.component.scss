@@ -1,0 +1,25 @@
+ .title {
+   font-size: 48px;
+   text-align: center;
+ }
+
+ .wrapper {
+
+   display: flex;
+   flex-direction: column;
+   width: 20%;
+   margin: auto;
+
+
+
+   .input {
+     flex: 1;
+     display: flex;
+
+     .btn {
+       flex: 1;
+     }
+
+     ;
+   }
+ }

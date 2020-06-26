@@ -1,0 +1,36 @@
+<div class="title">{{customerText}}</div>
+
+<button class="back" (click)="onBackClick()">Back</button>
+<div class="wrapper">
+  <mat-form-field class="input">
+    <mat-label>Customer</mat-label>
+    <input matInput #custValue type="text" [formControl]="custFormControl">
+    <mat-error *ngIf="custFormControl.hasError('resquired')">
+      Customer Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input">
+    <mat-label>Age</mat-label>
+    <input matInput #ageValue type="number" [formControl]="ageFormControl">
+    <mat-error *ngIf="ageFormControl.hasError() && !ageFormControl.hasError('required')">
+      Please enter a valid age
+    </mat-error>
+    <mat-error *ngIf="ageFormControl.hasError('resquired')">
+      Age is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="input">
+    <mat-label>Address</mat-label>
+    <input matInput #addrValue type="text" [formControl]="addrFormControl">
+    <mat-error *ngIf="addrFormControl.hasError('resquired')">
+      Address is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="input">
+    <button class="btn" (click)="onSave(custValue.value, ageValue.value, addrValue.value)">Save</button>
+    <button class="btn" (click)="custValue.value=''; ageValue.value=''; addrValue.value=''">Cancel</button>
+  </div>
+
+
+</div>
